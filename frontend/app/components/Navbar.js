@@ -8,7 +8,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar bg-base-100">
+      <div className="navbar  bg-[#1d232a]">
   <div className="flex justify-between">
     <div>
     <a className="btn hover:bg-white normal-case text-white  hover:text-black  text-xl">Home</a>
