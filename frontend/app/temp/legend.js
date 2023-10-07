@@ -3,7 +3,7 @@ import React from "react";
 const Legend = () => {
   return (
     <div className="w-64 p-4 bg-[#eee] shadow-md rounded-lg">
-      <h2 className="text-xl font-semibold mb-2">Legend()</h2>
+      <h2 className="text-xl font-semibold mb-2">Legend(°C)</h2>
       <div className="flex items-center">
         <div className="w-6 h-6 mr-2 bg-[#bfe2ca] rounded-full"></div>
         -3.8 - 1.19
