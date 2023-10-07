@@ -60,13 +60,17 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="navbar  bg-[#1d232a]">
+      <div className="navbar  bg-black sticky top-0">
         <div className="flex justify-between">
           <div>
-            <a className="text-[#a6adba] btn btn-ghost bg-[#1d232a] hover:bg-[#383f47] normal-case text-xl">Home</a>
-            <a className="text-[#a6adba] btn btn-ghost bg-[#1d232a] hover:bg-[#383f47] normal-case text-xl">Earth</a>
-            <a className="text-[#a6adba] btn btn-ghost bg-[#1d232a] hover:bg-[#383f47] normal-case text-xl">Sun</a>
-            <a className="text-[#a6adba] btn btn-ghost bg-[#1d232a] hover:bg-[#383f47] normal-case text-xl">Moon</a>
+            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
+             xl">Home</a>
+            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
+             xl">About</a>
+            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text-  
+             xl">Contact</a>
+            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
+             xl">Feedback</a>
           </div>
           <input type="text" className=" text-[1rem] text-right pr-[5rem] text ml-[13rem] h-[2rem] w-[50rem] rounded-[12rem]" onChange={(e) => handleSearchChange(e)} onKeyDown={(e) => textKey(e)} />
           <p className='text-[2rem] absolute ml-[81rem]'> <AiOutlineSearch /></p>
