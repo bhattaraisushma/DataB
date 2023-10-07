@@ -6,7 +6,7 @@ const initialState = {
 
 export const main = createSlice({
     name: "main",
-    initialState: initialState,
+    initialState,
 
     reducers: {
         setSearch: (state, action) => {

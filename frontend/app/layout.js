@@ -2,7 +2,7 @@ import './globals.css'
 import { Inter } from 'next/font/google'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import Leftside from './components/Leftside'
+import { ReduxProvider } from './components/redux/provider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,12 +17,14 @@ export default function RootLayout({ children }) {
        
        
       <body className={inter.className}>
-     <div className='   flex justify-between flex-col w-screen'>
-      <Navbar/>
-       {children}
-       {/* <Footer/> */}
+        <ReduxProvider >
+          <div className='flex justify-between flex-col w-screen'>
+            <Navbar/>
+            {children}
+            <Footer/>
    
-       </div></body>
+          </div>
+       </ReduxProvider></body>
     </html>
   )
 }
