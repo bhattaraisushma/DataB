@@ -22,6 +22,7 @@ const Visual = () => {
 
   return (
     <div>
+      <h1 className="text-gray-400 text-6xl mb-10 p-5">Temperature</h1>
       <div className="flex gap-10">
         <main>
           <MapComponent data={filterDataByYear(selectedYear)} />
@@ -50,6 +51,21 @@ const Visual = () => {
         </div>
 
         <p>Selected Year: {selectedYear}</p>
+      </div>
+      <div className="p-4">
+        <h2 className="text-3xl font-semibold mb-2">Temperature Overview:</h2>
+        <p className="mb-2 text-lg text-justify">
+          The temperature legend provides a comprehensive overview of the
+          climate in the represented region. It indicates that this area
+          experiences a wide range of temperatures throughout the year. Winters
+          can be quite cold, with temperatures occasionally dropping below
+          freezing, while summers can be hot and potentially sweltering. Spring
+          and fall offer milder and more pleasant weather conditions, making
+          outdoor activities enjoyable. Overall, this temperature data suggests
+          a continental climate with distinct seasonal variations, ranging from
+          freezing cold winters to hot summers, providing a diverse climate
+          experience for residents and visitors alike.
+        </p>
       </div>
     </div>
   );
