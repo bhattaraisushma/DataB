@@ -39,7 +39,7 @@ const Home = () => {
             elit. Autem deserunt culpa odit debitis pariatur suscipit eligendi
             doloremque deleniti ducimus.
           </p>
-          <button className="btn btn-info rounded-[12rem]  bg-green-400 w-[8rem] text-white mt-[5rem]  ml-10">
+          <button className="btn btn-info rounded-[12rem]  bg-green-400 w-[8rem] text-white mt-[5rem]   mb-16   ">
             Info
           </button>
         </div>
