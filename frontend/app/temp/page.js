@@ -9,6 +9,7 @@ import { changeYear } from "@/app/components/redux/features/yearSlice";
 import MapComponent from "./Map";
 import { useSelector, useDispatch } from "react-redux";
 import Legend from "./legend";
+import Download from "../components/Download";
 
 const Visual = () => {
   const myMap = new Map();
@@ -27,8 +28,9 @@ const Visual = () => {
         <main>
           <MapComponent data={filterDataByYear(selectedYear)} />
         </main>
-        <div className="flex items-center justify-center ml-[9%]">
+        <div className="flex flex-col space-y-10 items-center justify-center ml-[9%]">
           <Legend />
+          <Download jsonData={filterDataByYear(selectedYear)}/>
         </div>
       </div>
 
@@ -78,5 +80,7 @@ function filterDataByYear(year) {
   if (year === 2015) return data4;
   if (year === 2020) return data5;
 }
+
+
 
 export default Visual;
