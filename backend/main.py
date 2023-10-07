@@ -19,4 +19,4 @@ async def root():
 
 @app.get("/search")
 async def search(query: str ,skip: int = 0, limit: int = 10):
-    return search_query(query=query, skip=skip, limit=limit)
+    return {"data": search_query(query=query, skip=skip, limit=limit)}
