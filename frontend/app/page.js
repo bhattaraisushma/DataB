@@ -2,7 +2,7 @@ import React from 'react'
 import Leftside from './components/Leftside'
 const Home = () => {
   return (
-    <div className='h-full'>
+    <div >
          <Leftside/>
     </div>
   )
