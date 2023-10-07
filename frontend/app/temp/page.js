@@ -8,6 +8,7 @@ import data5 from "./geojason/temp2020.geojson";
 import { changeYear } from "@/app/components/redux/features/yearSlice";
 import MapComponent from "./Map";
 import { useSelector, useDispatch } from "react-redux";
+import Legend from "./legend";
 
 const Visual = () => {
   const myMap = new Map();
@@ -21,20 +22,51 @@ const Visual = () => {
 
   return (
     <div>
+      <h1 className="text-gray-400 text-6xl mb-10 p-5">Temperature</h1>
+      <div className="flex gap-10">
+        <main>
+          <MapComponent data={filterDataByYear(selectedYear)} />
+        </main>
+        <div className="flex items-center justify-center ml-[9%]">
+          <Legend />
+        </div>
+      </div>
+
       <div>
         <input
           type="range"
           min="2000"
           max="2020"
-          step="5"
           value={selectedYear}
+          className="range"
+          step="5"
           onChange={handleYearChange}
         />
+        <div className="w-full flex justify-between text-xs px-2">
+          <span>|</span>
+          <span>|</span>
+          <span>|</span>
+          <span>|</span>
+          <span>|</span>
+        </div>
+
         <p>Selected Year: {selectedYear}</p>
       </div>
-      <main>
-        <MapComponent data={filterDataByYear(selectedYear)} />
-      </main>
+      <div className="p-4">
+        <h2 className="text-3xl font-semibold mb-2">Temperature Overview:</h2>
+        <p className="mb-2 text-lg text-justify">
+          The temperature legend provides a comprehensive overview of the
+          climate in the represented region. It indicates that this area
+          experiences a wide range of temperatures throughout the year. Winters
+          can be quite cold, with temperatures occasionally dropping below
+          freezing, while summers can be hot and potentially sweltering. Spring
+          and fall offer milder and more pleasant weather conditions, making
+          outdoor activities enjoyable. Overall, this temperature data suggests
+          a continental climate with distinct seasonal variations, ranging from
+          freezing cold winters to hot summers, providing a diverse climate
+          experience for residents and visitors alike.
+        </p>
+      </div>
     </div>
   );
 };
