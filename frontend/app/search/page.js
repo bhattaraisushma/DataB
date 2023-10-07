@@ -1,16 +1,41 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import Data from '../components/Data'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Filter from '../components/Filter'
+
+import { useState } from 'react'
+import { setDisplay, setFinalDate,setInitialDate, setSearch } from '../components/redux/features/mainSlice'
+
 const page = () => {
 
   
   const data = useSelector((state)=> state.main.current_display);
   const search = useSelector((state)=> state.main.search);
+
+  const dispatch = useDispatch();
+
+  const [selected,setSelected] = useState({});
   
   // console.log("data");
   // console.log(data);
+
+  useEffect(() =>{
+
+    dispatch(setInitialDate("2005-02-12"));
+    dispatch(setFinalDate("2020-02-12"));
+    dispatch(setSearch(""));
+    dispatch(setDisplay([]));
+
+  },[])
+
+
+  function handleSelected(s) {
+
+    document.getElementById('my_modal_2').showModal();
+    setSelected(s);
+
+  }
 
   return (
     <div className='flex'>
@@ -35,12 +60,14 @@ const page = () => {
         <p className='p-6'>
               Search Results for {search}
             </p>
+
+          
         
         {
        data.map((d)=>{
         return(
           
-          <div className='pb-5' key={d.id}> 
+          <div className='pb-5' onClick={()=>handleSelected(d)} key={d.id}> 
 
             <Data data={d}/>
           
@@ -54,6 +81,22 @@ const page = () => {
        </div>
         
       }
+      <div>
+        
+    <dialog id="my_modal_2" className="modal ">
+      <div className="flex flex-col m-5 items-center max-w-6xl modal-box">
+      <img className=" " src={selected.photo} alt={selected.title} />
+        <h3 className="font-bold text-lg">{selected.title}</h3>
+        <p className="py-4">{selected.short_description}</p>
+
+        <a href={selected.url} className='border border-r-amber-800 p-3 rounded-md'>LINK</a>
+
+      </div>
+      
+      <form method="dialog" className="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog></div>
 
       
       </div>

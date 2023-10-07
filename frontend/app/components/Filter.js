@@ -6,10 +6,10 @@ function Filter() {
 
   return (
     <div className='h-[45.5em] w-[18rem] top-[4rem] left-0 fixed bg-slate-400'>
-      <div className='flex flex-col items-center justify-between ' >
+      <div className='flex flex-col mt-10 items-center justify-between ' >
         <p className='text-lg text-black'>Search Location</p>
       
-        <input type="text" className=" text-[1rem] text-right  bg-white text  mt-2 h-[2rem] w-[14rem] rounded-[12rem]" />
+        <input type="text" className=" text-[1rem] text-right  bg-[#1d232a]  mt-2 h-10 rounded-md" />
        <div>
           
           
@@ -18,9 +18,9 @@ function Filter() {
         <div className='flex flex-col justify-between items-center mt-9'> 
 
 
-            <p className='text-white'>Initial Date</p>
+            <p className='text-black'>Initial Date</p>
             <input type="text" placeholder="2005-02-12" onChange={(e)=>dispatch(setInitialDate(e.target.value))} className="input mb-6 h-10 input-bordered w-52 max-w-xs" />
-            <p className='text-white'>Final Date</p>
+            <p className='text-black'>Final Date</p>
             <input type="text" placeholder="2022-02-12" onChange={(e)=>dispatch(setFinalDate(e.target.value))} className="input mb-6 h-10 input-bordered w-52 max-w-xs" />
 
 

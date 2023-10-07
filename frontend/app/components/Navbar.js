@@ -74,17 +74,18 @@ const Navbar = () => {
       <div className="navbar  bg-black sticky top-0">
         <div className="flex justify-between">
           <div>
-            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
-             xl">Home</a>
-            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
-             xl">About</a>
-            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text-  
-             xl">Contact</a>
-            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
-             xl">Feedback</a>
+            <div className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
+             xl" onClick={()=>router.push('/')}>Home</div>
+            <div className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
+             xl" onClick={()=>router.push('/temp')}>Temperature</div>
+            <div className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text-  
+             xl" onClick={()=>router.push('/preci')}>Prepetation</div>
+            <div className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
+             xl" onClick={()=>router.push('/search')}>Search</div>
           </div>
-          <input type="text" className=" text-[1rem] text-right pr-[5rem] text ml-[13rem] h-[2rem] w-[50rem] rounded-[12rem]" onChange={(e) => handleSearchChange(e)} onKeyDown={(e) => textKey(e)} />
-          <p className='text-[2rem] absolute ml-[81rem]'> <AiOutlineSearch /></p>
+          
+          <input type="text" placeholder='Search Data' className=" text-[1rem] text-right pr-[5rem] text ml-[13rem] h-[2rem] w-[45rem] rounded-[12rem]" onChange={(e) => handleSearchChange(e)} onKeyDown={(e) => textKey(e)} />
+
 
 
 
