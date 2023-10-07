@@ -17,9 +17,13 @@ const Home = () => {
              
                 <div className='flex pl-[22rem] pt-[8rem]  justify-items-center'>
                   <div className="join flex items-center space-x-3">
-                    <button className="btn join-item my-2 bg-slate-400 hover:bg-white text-black">Most Viewed Datasets</button>
-                    <button className="btn join-item my-2 bg-slate-400 hover:bg-white text-black">Recently Added Datasets</button>
-                    <button className="btn join-item my-2 bg-slate-400 hover:bg-white text-black">Datasets by Organization</button>
+                    <button className="btn join-item my-2 bg-slate-400 hover:bg-white text-black">
+                      
+                      </button>
+                    <button className="btn join-item my-2 bg-slate-400 hover:bg-white text-black">Recently Added 
+                     Datasets</button>
+                    <button className="btn join-item my-2 bg-slate-400 hover:bg-white text-black">Datasets by 
+                     Organization</button>
                   </div>
           
         
