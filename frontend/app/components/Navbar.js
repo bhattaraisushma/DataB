@@ -83,8 +83,9 @@ const Navbar = () => {
             <div className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
              xl" onClick={()=>router.push('/search')}>Search</div>
           </div>
-          <input type="text" className=" text-[1rem] text-right pr-[5rem] text ml-[13rem] h-[2rem] w-[50rem] rounded-[12rem]" onChange={(e) => handleSearchChange(e)} onKeyDown={(e) => textKey(e)} />
-          <p className='text-[2rem] absolute ml-[81rem]'> <AiOutlineSearch /></p>
+          
+          <input type="text" placeholder='Search Data' className=" text-[1rem] text-right pr-[5rem] text ml-[13rem] h-[2rem] w-[45rem] rounded-[12rem]" onChange={(e) => handleSearchChange(e)} onKeyDown={(e) => textKey(e)} />
+
 
 
 

@@ -5,8 +5,8 @@ import photo from '../../public/Geoimg-removebg-preview.png'
 function Rightside() {
   return (
     <div >
-      <div className='pl-[40rem] '>
-      <Image className=" mt-7 w-[40rem] "src={photo}/>
+      <div className='pl-[20rem] '>
+      <Image className=" mt-7 w-[20rem] "src={photo}/>
       </div>
       <div>
      
