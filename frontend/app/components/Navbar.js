@@ -4,17 +4,16 @@ const Navbar = () => {
   return (
     <>
       <div className="navbar bg-base-100">
-  <div className="flex-1">
+  <div className="flex justify-between">
+    <div>
     <a className="btn btn-ghost normal-case text-xl">Home</a>
     <a className="btn btn-ghost normal-case text-xl">Earth</a>
     <a className="btn btn-ghost normal-case text-xl">Sun</a>
     <a className="btn btn-ghost normal-case text-xl">Moon</a>
-    <a className="btn btn-ghost normal-case text-xl ml-[60rem]">Search <p> <AiOutlineSearch/></p></a>
-  </div>
-  <div className="flex-none">
-    <button className="btn btn-square btn-ghost">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-5 h-5 stroke-current"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
-    </button>
+    </div>
+    <input type ="text" className=" text-[1rem] text-right pr-[5rem] text ml-[13rem] h-[2rem]  w-[50rem] rounded-[12rem]"/>
+    <p className='text-[2rem] absolute ml-[81rem]'> <AiOutlineSearch/></p>
+  
   </div>
 </div>
 
