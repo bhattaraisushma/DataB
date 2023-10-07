@@ -11,7 +11,7 @@ function Data({data}) {
      <div className=' rounded-md bg-[#3b3b3b] h-full text-cyan-100 '>
         <div className='flex items-center space-x-6'>
 
-        <img className=' text-white w-[4rem] h-[3rem]' src={data.photo} onError={`this.src"=../../public/default.png"`}/>
+        <img className=' text-white w-[4rem] h-[3rem]' src={data.photo}/>
         <span className='text-lg'>{data.title}</span>
         
         </div>

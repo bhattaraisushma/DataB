@@ -1,20 +1,34 @@
 "use client"
-import React from 'react'
+import React, { useEffect } from 'react'
 import Data from '../components/Data'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Filter from '../components/Filter'
 
 import { useState } from 'react'
+import { setDisplay, setFinalDate,setInitialDate, setSearch } from '../components/redux/features/mainSlice'
+
 const page = () => {
 
   
   const data = useSelector((state)=> state.main.current_display);
   const search = useSelector((state)=> state.main.search);
 
+  const dispatch = useDispatch();
+
   const [selected,setSelected] = useState({});
   
   // console.log("data");
   // console.log(data);
+
+  useEffect(() =>{
+
+    dispatch(setInitialDate("2005-02-12"));
+    dispatch(setFinalDate("2020-02-12"));
+    dispatch(setSearch(""));
+    dispatch(setDisplay([]));
+
+  },[])
+
 
   function handleSelected(s) {
 
