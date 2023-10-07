@@ -1,10 +1,9 @@
 import React from 'react'
-import Rightsidebar from './components/Rightsidebar'
-
+import Leftside from './components/Leftside'
 const Home = () => {
   return (
-    <div>
-     <Rightsidebar/>
+    <div className='h-full'>
+         <Leftside/>
     </div>
   )
 }
