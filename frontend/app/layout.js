@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
           <div className='flex justify-between flex-col w-screen'>
             <Navbar/>
             {children}
-            <Footer/>
+            {/* <Footer/> */}
    
           </div>
        </ReduxProvider></body>
