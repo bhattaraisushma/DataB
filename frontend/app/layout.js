@@ -16,11 +16,11 @@ export default function RootLayout({ children }) {
        
        
       <body className={inter.className}>
-      
+     <div className='flex justify-between flex-col'>
       <Navbar/>
-        
+       {children}
        <Footer/>
-       {children}</body>
+       </div></body>
     </html>
   )
 }
