@@ -11,7 +11,7 @@ const Navbar = () => {
   const search = useSelector((state)=> state.main.search);
   
   const dispatch = useDispatch();
-  const router = useRouter();
+  
   const pathname = usePathname();
 
   const textKey = (e)=>{
@@ -48,19 +48,12 @@ const Navbar = () => {
       console.log(pathname)
      if (!pathname.includes("/search")) {
 
-       router.push('/search');
-      // console.log('router');   
-     }
-    
     //  console.log(search);
-     dispatch(setSearch((e.target.value)))
-
-
-  };
-
-  
+    dispatch(setSearch(e.target.value));
+  }
 
   console.log(search);
+}
 
   return (
     <>
@@ -82,7 +75,7 @@ const Navbar = () => {
 </div>
 
     </>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
