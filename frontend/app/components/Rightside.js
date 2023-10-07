@@ -11,9 +11,9 @@ function Rightside() {
       <div>
         <section>
           <div className="join join-vertical">
-            <button className="btn join-item my-2 ">Most Viewed Datasets</button>
-            <button className="btn join-item my-2">Recently Added Datasets</button>
-            <button className="btn join-item my-2">Datasets by Organization</button>
+            <button className="btn join-item my-2 bg-slate-400 hover:bg-white">Most Viewed Datasets</button>
+            <button className="btn join-item my-2 bg-slate-400 hover:bg-white">Recently Added Datasets</button>
+            <button className="btn join-item my-2 bg-slate-400 hover:bg-white">Datasets by Organization</button>
           </div>
       
         </section>
