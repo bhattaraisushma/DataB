@@ -24,7 +24,7 @@ const Home = () => {
         
       </div>
               
-            <div className=" bg-white w-screen    mt-[22rem]  pl-[10rem] rounded-2xl flex flex-row">
+            <div className=" bg-white    mt-[22rem]  pl-[10rem] rounded-2xl flex flex-row">
         <Image  className="h-[20rem]  w-[20rem] " src={photo}/>
    <div><p className='text-red-600  text-[2rem] font-semibold mt-14'>About data.gov</p>
     <p className='text-black text-lg w-[40rem]'>Lorem ipsum dolor sit amet consectetur dipisicing elit. Officiis ea provident beatae maiores neque cum adipisci a eaque. Fugit, accusantium! Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem deserunt culpa odit debitis pariatur suscipit eligendi doloremque deleniti ducimus.</p>
