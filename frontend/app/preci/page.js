@@ -8,6 +8,7 @@ import data5 from "./geojason/prep2020.geojson";
 import { changeYear } from "@/app/components/redux/features/yearSlice";
 import MapComponent from "./Map";
 import { useSelector, useDispatch } from "react-redux";
+import Legend from "./legend";
 
 const Visual = () => {
   const myMap = new Map();
@@ -21,20 +22,34 @@ const Visual = () => {
 
   return (
     <div>
+      <div className="flex gap-10">
+        <main>
+          <MapComponent data={filterDataByYear(selectedYear)} />
+        </main>
+        <div className="flex items-center justify-center ml-[9%]">
+          <Legend />
+        </div>
+      </div>
       <div>
         <input
           type="range"
           min="2000"
           max="2020"
-          step="5"
           value={selectedYear}
+          className="range"
+          step="5"
           onChange={handleYearChange}
         />
+        <div className="w-full flex justify-between text-xs px-2">
+          <span>|</span>
+          <span>|</span>
+          <span>|</span>
+          <span>|</span>
+          <span>|</span>
+        </div>
+
         <p>Selected Year: {selectedYear}</p>
       </div>
-      <main>
-        <MapComponent data={filterDataByYear(selectedYear)} />
-      </main>
     </div>
   );
 };
