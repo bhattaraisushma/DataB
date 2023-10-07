@@ -20,5 +20,9 @@ async def root():
 @app.get("/search")
 async def search(query: str ,skip: int = 0, limit: int = 10, location: str = None, start_time: str = None, end_time: str = None):
     # return data from search_query(query, skip, limit, start_time, end_time)
-    data = await search_query(query, skip, limit, location, start_time, end_time)
-    return data
+    try:
+        data = await search_query(query, skip, limit, location, start_time, end_time)
+    except:
+        return {'message': 'Server error'}
+    else:
+        return data

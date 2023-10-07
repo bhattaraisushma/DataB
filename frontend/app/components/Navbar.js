@@ -17,6 +17,9 @@ const Navbar = () => {
 
   const pathname = usePathname();
 
+  const initial_date = useSelector((state)=> state.main.initial_date);
+  const final_date = useSelector((state)=> state.main.final_date);
+
   
   const textKey = (e) => {
 
@@ -32,6 +35,8 @@ const Navbar = () => {
     const params = {
       query: search,
       limit: 10,
+      initial_date: initial_date,
+      final_date:final_date,
 
     }
 
@@ -47,8 +52,8 @@ const Navbar = () => {
     }
 
     const response_data = response.data;
-    console.log(response_data)
-    dispatch(setDisplay(response_data.data))
+    // console.log(response_data)
+    dispatch(setDisplay(response_data))
   }
 
 
