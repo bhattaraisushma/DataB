@@ -16,15 +16,16 @@ export default function RootLayout({ children }) {
     <html lang="en">
        
        
-      <body className={inter.className}>
         <ReduxProvider >
+        <body className={inter.className}>
           <div className='flex justify-between flex-col w-screen'>
             <Navbar/>
             {children}
             <Footer/>
    
           </div>
-       </ReduxProvider></body>
+       </body>
+       </ReduxProvider>
     </html>
   )
 }
