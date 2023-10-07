@@ -1,7 +1,8 @@
 "use client"
 import React from 'react'
-import { useSelector } from 'react-redux';
-
+import Image from 'next/image'
+import Data from '../components/Data'
+import { useSelector } from 'react-redux'
 const page = () => {
 
   
@@ -11,25 +12,23 @@ const page = () => {
   return (
     <div>
       
-      <div>
-              {data &&
-  data.map((e)=>{
-    return (
-      <div key={e.id}>
+      <div className=''>
 
-      <h1 className="text-center text-3xl font-bold"> {e.id}</h1>
-      <h2 className="text-center text-xl font-bold"> {e.title}</h2>
-      <h3 className="text-center text-lg font-bold"> {e.url}</h3>
-        
-    </div>
+       {data && data.map((d)=>{
+        return(
+            
+          <div className='pt-5' key={d.id}> 
 
-    )
-  }
-  
-  )
+            <Data data={d}/>
+          
+          </div>
 
-}
-        
+        ) 
+       }
+       )
+      }
+
+      
       </div>
     </div>
   )

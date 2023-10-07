@@ -13,8 +13,11 @@ const Navbar = () => {
 
   const dispatch = useDispatch();
 
+  const router = useRouter();
+
   const pathname = usePathname();
 
+  
   const textKey = (e) => {
 
     if (e.keyCode == 13) {
@@ -28,7 +31,8 @@ const Navbar = () => {
 
     const params = {
       query: search,
-      limit: 1
+      limit: 10,
+
     }
 
     let response = null;
@@ -44,6 +48,7 @@ const Navbar = () => {
 
     const response_data = response.data;
     console.log(response_data)
+    dispatch(setDisplay(response_data.data))
   }
 
 
@@ -51,22 +56,27 @@ const Navbar = () => {
     console.log(pathname)
     if (!pathname.includes("/search")) {
 
-      //  console.log(search);
-      dispatch(setSearch(e.target.value));
+        router.push('/search')
+      
     }
-
-    console.log(search);
+    
+    dispatch(setSearch(e.target.value));
+    // console.log(search);
   }
 
   return (
     <>
-      <div className="navbar  bg-[#1d232a]">
+      <div className="navbar  bg-black sticky top-0">
         <div className="flex justify-between">
           <div>
-            <a className="text-[#a6adba] btn btn-ghost bg-[#1d232a] hover:bg-[#383f47] normal-case text-xl">Home</a>
-            <a className="text-[#a6adba] btn btn-ghost bg-[#1d232a] hover:bg-[#383f47] normal-case text-xl">Earth</a>
-            <a className="text-[#a6adba] btn btn-ghost bg-[#1d232a] hover:bg-[#383f47] normal-case text-xl">Sun</a>
-            <a className="text-[#a6adba] btn btn-ghost bg-[#1d232a] hover:bg-[#383f47] normal-case text-xl">Moon</a>
+            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
+             xl">Home</a>
+            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
+             xl">About</a>
+            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text-  
+             xl">Contact</a>
+            <a className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
+             xl">Feedback</a>
           </div>
           <input type="text" className=" text-[1rem] text-right pr-[5rem] text ml-[13rem] h-[2rem] w-[50rem] rounded-[12rem]" onChange={(e) => handleSearchChange(e)} onKeyDown={(e) => textKey(e)} />
           <p className='text-[2rem] absolute ml-[81rem]'> <AiOutlineSearch /></p>
