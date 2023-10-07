@@ -1,11 +1,4 @@
-# Virtual Environment
-venv
 .venv
 env
-
-# Python
+venv
 __pycache__
-
-# Django
-db.sqlite3
-migrations
