@@ -1,48 +1,64 @@
 import requests
+import aiohttp
+import asyncio
 
-apis = {
-    'data.gov': {
-        'url': 'https://catalog.data.gov/api/3/action/package_search',
-        'parameters': {
-            'query': 'q',
-            'limit': 'rows',
-            'skip': 'start'
-        }
-    }
-}
+async def fetch(session, url, params):
+    async with session.get(url, params=params) as response:
+        return await response.json()
 
-def grab_from_data_gov(query: str, skip: int = 0, limit: int = 10):
-    url = apis['data.gov']['url']
-    parameter_names = apis['data.gov']['parameters']
+async def grab_from_data_gov(query: str, skip: int = 0, limit: int = 10, start_time: str = None, end_time: str = None):
+    url = 'https://catalog.data.gov/api/3/action/package_search'
+
     parameters = {
-        parameter_names['query']: query,
-        parameter_names['limit']: limit,
-        parameter_names['skip']: skip
+        'q': query,
+        'rows': limit,
+        'start': skip
     }
 
-    response = requests.get(url, params=parameters)
-    data = response.json()
+    # Create a list to store filter queries
+    filter_queries = []
 
-    # Extract specific fields from the response
-    results = []
-    for result in data['result']['results']:
-        entry = {
-            'id': result['id'],
-            'title': result['title'],
-            'url': result['resources'][0]['url'],  # Assuming the URL is in the first resource, adjust if needed
-            'short_description': result['notes'],
-            'organization_name': result['organization']['name'],
-            'photo': result['organization']['image_url']
-        }
-        results.append(entry)
+    # Add start and end time filters if provided
+    if start_time and end_time:
+        filter_queries.append(f'metadata_created:[{start_time}T00:00:00Z TO {end_time}T23:59:59Z]')
+        filter_queries.append(f'metadata_modified:[{start_time}T00:00:00Z TO {end_time}T23:59:59Z]')
 
-    return results
+    # Join filter queries with spaces and add to parameters
+    if filter_queries:
+        parameters['fq_list'] = filter_queries
 
-def search_query(query: str ,skip: int = 0, limit: int = 10):
-    return grab_from_data_gov(query, skip, limit)
+    async with aiohttp.ClientSession() as session:
+        response = await fetch(session, url, params=parameters)
+        data = response.get('result', {}).get('results', [])
+
+        # Extract specific fields from the response
+        results = []
+        for result in data:
+            entry = {
+                'id': result['id'],
+                'title': result['title'],
+                'url': result['resources'][0]['url'],  # Assuming the URL is in the first resource, adjust if needed
+                'short_description': result['notes'],
+                'organization_name': result['organization']['name'],
+                'photo': result['organization']['image_url'],
+                'created': result['metadata_created']
+            }
+            results.append(entry)
+
+        return results
+
+async def search_query(query: str ,skip: int = 0, limit: int = 10, location: str = None, start_time: str = None, end_time: str = None):
+    # return data from grab_from_data_gov(query, skip, limit, start_time, end_time)
+    data_gov = await grab_from_data_gov(query, skip, limit, start_time, end_time)
+    return data_gov
 
 if __name__ == "__main__":
-    # store the results in a file
+    # get data from search_query and store it to file
     import json
-    with open('results.json', 'w') as f:
-        json.dump(search_query('covid'), f, indent=4)
+    import time
+    start_time = time.time()
+    data = asyncio.run(search_query(query="covid", skip=0, limit=10, location=None, start_time=None, end_time=None))
+    print("--- %s seconds ---" % (time.time() - start_time))
+    with open('data.json', 'w') as outfile:
+        json.dump(data, outfile)
+    
