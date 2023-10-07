@@ -8,6 +8,7 @@ import data5 from "./geojason/prep2020.geojson";
 import { changeYear } from "@/app/components/redux/features/yearSlice";
 import MapComponent from "./Map";
 import { useSelector, useDispatch } from "react-redux";
+import About from "./about";
 
 const Visual = () => {
   const myMap = new Map();
@@ -21,6 +22,7 @@ const Visual = () => {
 
   return (
     <div>
+      <About />
       <div>
         <input
           type="range"
