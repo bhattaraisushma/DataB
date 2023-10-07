@@ -1,0 +1,11 @@
+# Virtual Environment
+venv
+.venv
+env
+
+# Python
+__pycache__
+
+# Django
+db.sqlite3
+migrations
