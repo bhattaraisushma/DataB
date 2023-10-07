@@ -1,11 +1,15 @@
 import React from 'react'
-
+import { AiOutlineSearch } from 'react-icons/ai';
 const Navbar = () => {
   return (
     <>
       <div className="navbar bg-base-100">
   <div className="flex-1">
-    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <a className="btn btn-ghost normal-case text-xl">Home</a>
+    <a className="btn btn-ghost normal-case text-xl">Earth</a>
+    <a className="btn btn-ghost normal-case text-xl">Sun</a>
+    <a className="btn btn-ghost normal-case text-xl">Moon</a>
+    <a className="btn btn-ghost normal-case text-xl ml-[60rem]">Search <p> <AiOutlineSearch/></p></a>
   </div>
   <div className="flex-none">
     <button className="btn btn-square btn-ghost">
