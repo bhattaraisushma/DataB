@@ -1,23 +1,46 @@
 "use client"
 import React from 'react'
-import Image from 'next/image'
 import Data from '../components/Data'
 import { useSelector } from 'react-redux'
+import Filter from '../components/Filter'
 const page = () => {
 
   
   const data = useSelector((state)=> state.main.current_display);
-  console.log(data);
+  const search = useSelector((state)=> state.main.search);
+  
+  // console.log("data");
+  // console.log(data);
 
   return (
-    <div>
-      
-      <div className=''>
+    <div className='flex'>
+      <div className='h-full' >
 
-       {data && data.map((d)=>{
+        
+      <Filter />
+
+      </div>
+      
+      <div className='flex w-screen pl-24 flex-col justify-between items-center'>
+
+       {data.length === 0 ? 
+       <div className='h-[24.5rem] text-red-600 mt-20'>
+
+          no results found
+
+       </div>  
+       
+       : 
+       <div>
+        <p className='p-6'>
+              Search Results for {search}
+            </p>
+        
+        {
+       data.map((d)=>{
         return(
-            
-          <div className='pt-5' key={d.id}> 
+          
+          <div className='pb-5' key={d.id}> 
 
             <Data data={d}/>
           
@@ -25,7 +48,11 @@ const page = () => {
 
         ) 
        }
+       
        )
+      }
+       </div>
+        
       }
 
       
