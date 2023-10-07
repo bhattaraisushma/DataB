@@ -13,8 +13,11 @@ const Navbar = () => {
 
   const dispatch = useDispatch();
 
+  const router = useRouter();
+
   const pathname = usePathname();
 
+  
   const textKey = (e) => {
 
     if (e.keyCode == 13) {
@@ -28,7 +31,8 @@ const Navbar = () => {
 
     const params = {
       query: search,
-      limit: 1
+      limit: 10,
+
     }
 
     let response = null;
@@ -44,6 +48,7 @@ const Navbar = () => {
 
     const response_data = response.data;
     console.log(response_data)
+    dispatch(setDisplay(response_data.data))
   }
 
 
@@ -51,11 +56,12 @@ const Navbar = () => {
     console.log(pathname)
     if (!pathname.includes("/search")) {
 
-      //  console.log(search);
-      dispatch(setSearch(e.target.value));
+        router.push('/search')
+      
     }
-
-    console.log(search);
+    
+    dispatch(setSearch(e.target.value));
+    // console.log(search);
   }
 
   return (

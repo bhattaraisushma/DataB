@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "autoprefixer": "10.4.16",
     "axios": "^1.5.1",
     "eslint": "8.51.0",

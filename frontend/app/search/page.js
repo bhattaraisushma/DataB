@@ -2,6 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Data from '../components/Data'
+import { useSelector } from 'react-redux'
 const page = () => {
 
   
@@ -11,11 +12,23 @@ const page = () => {
   return (
     <div>
       
-      <div>
-      <Data/>
-      <Data/>
-      <Data/>
-      <Data/>
+      <div className=''>
+
+       {data && data.map((d)=>{
+        return(
+            
+          <div className='pt-5' key={d.id}> 
+
+            <Data data={d}/>
+          
+          </div>
+
+        ) 
+       }
+       )
+      }
+
+      
       </div>
     </div>
   )
