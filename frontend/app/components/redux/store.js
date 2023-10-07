@@ -4,7 +4,7 @@ import mainReducer from "./features/mainSlice";
 export const store = configureStore({
 
     reducer: {
-        mainReducer,
+        main:mainReducer,
     },
 
 
