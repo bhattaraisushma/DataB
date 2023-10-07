@@ -9,6 +9,7 @@ import { changeYear } from "@/app/components/redux/features/yearSlice";
 import MapComponent from "./Map";
 import { useSelector, useDispatch } from "react-redux";
 import Legend from "./legend";
+import About from "./about";
 
 const Visual = () => {
   const myMap = new Map();
@@ -22,6 +23,7 @@ const Visual = () => {
 
   return (
     <div>
+      <About />
       <div className="flex gap-10">
         <main>
           <MapComponent data={filterDataByYear(selectedYear)} />
@@ -30,6 +32,7 @@ const Visual = () => {
           <Legend />
         </div>
       </div>
+
       <div>
         <input
           type="range"
