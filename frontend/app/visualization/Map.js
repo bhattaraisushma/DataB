@@ -10,12 +10,12 @@ const MapComponent = () => {
     console.log(mapContainer.current);
     const map = new maplibreGl.Map({
       container: mapContainer.current,
-      center: [28.394858, 84.124008],
-      zoom: 10,
+      center: [84.124008,28.394858 ],
+      zoom: 5,
       pitch: 0,
       hash: true,
-      dragPan: false,
-      scrollZoom: false,
+      // dragPan: false,
+      // scrollZoom: false,
       style: {
         version: 8,
         sources: {
