@@ -10,6 +10,10 @@ function Leftside() {
         <p className='font-extrabold  '>WITH US</p>
         <p className='pt-[2rem]'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, similique.</p>
         </div>
+        <div className="bg-white ml-[15rem] h-[14rem]">
+    <p className='text-black font-semibold'>About data.gov</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis ea provident beatae maiores neque cum adipisci a eaque. Fugit, accusantium!</p>
+  </div>
      </div>
     </>
   )
