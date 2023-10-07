@@ -12,11 +12,11 @@ const MapComponent = () => {
     const map = new maplibreGl.Map({
       container: mapContainer.current,
       center: [84.124008, 28.394858],
-      zoom: 5,
+      zoom: 6,
       pitch: 0,
       hash: true,
-      // dragPan: false,
-      // scrollZoom: false,
+      dragPan: false,
+      scrollZoom: false,
       style: {
         version: 8,
         sources: {
@@ -26,7 +26,6 @@ const MapComponent = () => {
               "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
             ],
             tileSize: 256,
-            // attribution: "&copy; OpenStreetMap Contributors",
             maxzoom: 10,
           },
           terrainSource: {
@@ -53,22 +52,6 @@ const MapComponent = () => {
       },
     });
 
-    map.on("load", () => {
-      map.addControl(
-        new maplibreGl.NavigationControl({
-          visualizePitch: true,
-          showZoom: true,
-          showCompass: true,
-        })
-      );
-      map.addControl(
-        new maplibreGl.TerrainControl({
-          source: "terrainSource",
-          exaggeration: 1,
-        })
-      );
-    });
-
     setMap(map);
 
     return () => {
@@ -80,7 +63,7 @@ const MapComponent = () => {
     <div
       className="max-w-[75vw]"
       ref={mapContainer}
-      style={{ width: "75vw", height: "65vh" }}
+      style={{ width: "70vw", height: "60vh" }}
     >
       <GeoJsonLoader map={map} />
     </div>
