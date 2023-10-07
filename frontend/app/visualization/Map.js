@@ -14,6 +14,7 @@ const MapComponent = () => {
       zoom: 10,
       pitch: 0,
       hash: true,
+      dragPan: false,
       scrollZoom: false,
       style: {
         version: 8,
