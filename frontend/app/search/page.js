@@ -3,7 +3,6 @@ import React from 'react'
 import Image from 'next/image'
 import Data from '../components/Data'
 import { useSelector } from 'react-redux'
-
 const page = () => {
 
   

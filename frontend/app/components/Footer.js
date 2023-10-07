@@ -3,7 +3,7 @@ import React from "react";
 function Footer() {
   return (
     <div className="  md:flex md:items-center md:justify-between w-full">
-      <footer className="footer footer-center p-10  text-base-content rounded bg-zinc-500 w-screen h-64 static bottom-0 ">
+      <footer className="footer footer-center p-10  text-base-content rounded bg-slate-200 w-full h-64 static bottom-0 ">
         <nav className="grid grid-flow-col gap-4 ">
           <a className="link link-hover hover:text-blue-300">About us</a>
           <a className="link link-hover hover:text-blue-300">Contact</a>
