@@ -41,7 +41,8 @@ async def grab_from_data_gov(query: str, skip: int = 0, limit: int = 10, start_t
                 'short_description': result['notes'],
                 'organization_name': result['organization']['name'],
                 'photo': result['organization']['image_url'],
-                'created': result['metadata_created']
+                'created': result['metadata_created'],
+                'api': 'data_gov'
             }
             results.append(entry)
 

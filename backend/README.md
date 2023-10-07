@@ -1,13 +1,16 @@
-# Backend
+# DataBridges Backend
 
-## Setup
+## Run Locally
+
+### Install Requiremnts
 
 ```bash
 pip install -r requirements.txt
 ```
 
-## Run
+## Run server
 
 ```bash
 uvicorn main:app --reload
 ```
+
