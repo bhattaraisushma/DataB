@@ -18,5 +18,7 @@ async def root():
     return {"message": "Hello World"}
 
 @app.get("/search")
-async def search(query: str ,skip: int = 0, limit: int = 10):
-    return {"data": search_query(query=query, skip=skip, limit=limit)}
+async def search(query: str ,skip: int = 0, limit: int = 10, location: str = None, start_time: str = None, end_time: str = None):
+    # return data from search_query(query, skip, limit, start_time, end_time)
+    data = await search_query(query, skip, limit, location, start_time, end_time)
+    return data
