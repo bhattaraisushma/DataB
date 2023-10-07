@@ -2,9 +2,9 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div className=" mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between absolute bottom-0 w-screen" >
+    <div className=" p-4 md:flex md:items-center md:justify-between absolute bottom-0 w-screen" >
          
-        <footer className="footer footer-center p-10  text-base-content rounded bg-zinc-500 w-full h-64 static bottom-0 ">
+        <footer className="footer footer-center p-10  text-base-content rounded bg-zinc-500 w-screen h-64 static bottom-0 ">
   <nav className="grid grid-flow-col gap-4 ">
     <a className="link link-hover hover:text-blue-300">About us</a> 
     <a className="link link-hover hover:text-blue-300">Contact</a> 
