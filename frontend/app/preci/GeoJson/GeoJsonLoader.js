@@ -21,7 +21,7 @@ function GeoJsonLoader({ map }) {
         paint: {
           "fill-color": [
             "match",
-            ["get", "gridcode"], // Replace with your property name
+            ["get", "gridcode"],
             1,
             "rgb(239, 232, 52)",
             2,
@@ -38,8 +38,7 @@ function GeoJsonLoader({ map }) {
             "rgb(11, 106, 64)",
             8,
             "rgb(7, 72, 49)",
-            // Add other color matches for different values of 'gridcode'
-            // Add a default color at the end
+
             "rgb(250, 250, 250)",
           ],
         },
@@ -47,7 +46,7 @@ function GeoJsonLoader({ map }) {
     });
   }, [map]);
 
-  return null; // This component doesn't render anything in the DOM
+  return null;
 }
 
 export default GeoJsonLoader;
