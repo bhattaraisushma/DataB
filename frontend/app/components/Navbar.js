@@ -9,7 +9,9 @@ const Navbar = () => {
     <a className="btn btn-ghost normal-case text-xl">Earth</a>
     <a className="btn btn-ghost normal-case text-xl">Sun</a>
     <a className="btn btn-ghost normal-case text-xl">Moon</a>
-    <a className="btn btn-ghost normal-case text-xl ml-[60rem]">Search <p> <AiOutlineSearch/></p></a>
+    <input type ="text" className="btn btn-ghost normal-case text-[4rem] ml-[13rem]   rounded-[12rem]"/>
+    <p className='text-5xl absolute ml-[88rem]'> <AiOutlineSearch/></p>
+  
   </div>
   <div className="flex-none">
     <button className="btn btn-square btn-ghost">
