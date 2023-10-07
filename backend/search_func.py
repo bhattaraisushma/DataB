@@ -47,6 +47,27 @@ async def grab_from_data_gov(query: str, skip: int = 0, limit: int = 10, start_t
 
         return results
 
+
+async def get_data_by_id(id: str):
+    url = f'https://catalog.data.gov/api/3/action/package_show?id={id}'
+
+    async with aiohttp.ClientSession() as session:
+        response = await fetch(session, url, params={})
+        data = response.get('result', {})
+
+        # Extract specific fields from the response
+        entry = {
+            'id': data['id'],
+            'title': data['title'],
+            'url': data['resources'][0]['url'],  # Assuming the URL is in the first resource, adjust if needed
+            'short_description': data['notes'],
+            'organization_name': data['organization']['name'],
+            'photo': data['organization']['image_url'],
+            'created': data['metadata_created']
+        }
+
+        return entry
+
 async def search_query(query: str ,skip: int = 0, limit: int = 10, location: str = None, start_time: str = None, end_time: str = None):
     # return data from grab_from_data_gov(query, skip, limit, start_time, end_time)
     data_gov = await grab_from_data_gov(query, skip, limit, start_time, end_time)
