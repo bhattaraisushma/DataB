@@ -2,7 +2,7 @@ import React from "react";
 
 const Legend = () => {
   return (
-    <div className="w-64 p-4 bg-[#eee] shadow-md rounded-lg">
+    <div className="w-64 p-4 bg-[#eee] text-[#333] shadow-md rounded-lg">
       <h2 className="text-xl font-semibold mb-2">Legend(mm/day)</h2>
       <div className="flex items-center">
         <div className="w-6 h-6 mr-2 bg-[#efe834] rounded-full"></div>
