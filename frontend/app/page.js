@@ -1,10 +1,11 @@
 import React from 'react'
 import Leftside from './components/Leftside'
+import Rightside from './components/Rightside'
 const Home = () => {
   return (
-    <div >
-         <Leftside/>
-    </div>
+    <div className='flex' >
+         <Leftside/><Rightside/>
+            </div>
   )
 }
 
