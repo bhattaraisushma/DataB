@@ -130,9 +130,8 @@ async def search_query(query: str ,skip: int = 0, limit: int = 10, location: str
     results = []
     data_gov_data = await grab_from_data_gov(query, skip=data_gov_skip, limit=data_gov_responses, start_time=start_time, end_time=end_time)
     csa_data = await grab_from_csa(query, skip=csa_skip, limit=csa_responses, start_time=start_time, end_time=end_time)
-    results.append(data_gov_data)
-    results.append(csa_data)
-    print(csa_data)
+    results.extend(data_gov_data)
+    results.extend(csa_data)
 
     return results
 
