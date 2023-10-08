@@ -5,6 +5,9 @@ const initialState = {
     current_display : [],
     initial_date : "2005-02-12",
     final_date : "2020-02-12",
+    loading : false,
+    skip:10,
+
 
 }
 
@@ -25,10 +28,16 @@ export const main = createSlice({
     },  
     setFinalDate: (state, action) => {
         state.final_date = action.payload;
+    },
+    setLoading: (state, action) => {
+        state.loading = action.payload;
+    },
+    setSkip: (state, action) => {
+        state.skip = action.payload;
     }
 }
 
 })
 
-export const { setSearch ,setDisplay ,setInitialDate,setFinalDate } = main.actions;
+export const { setSearch ,setDisplay ,setInitialDate,setFinalDate,setLoading,setSkip } = main.actions;
 export default main.reducer; 
