@@ -6,7 +6,7 @@ function Rightside() {
   return (
     <div >
       <div className='pl-[20rem] '>
-      <Image className=" mt-7 w-[20rem] "src={photo}/>
+      
       </div>
       <div>
      

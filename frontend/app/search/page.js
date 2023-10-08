@@ -3,11 +3,12 @@ import React, { useEffect } from 'react'
 import Data from '../components/Data'
 import { useDispatch, useSelector } from 'react-redux'
 import Filter from '../components/Filter'
-
+import Image from 'next/image'
+import imamge from '../../public/default.png'
 import { useState } from 'react'
 import { setDisplay, setFinalDate,setInitialDate, setSearch } from '../components/redux/features/mainSlice'
 
-const page = () => {
+const Page = () => {
 
   
   const data = useSelector((state)=> state.main.current_display);
@@ -22,10 +23,10 @@ const page = () => {
 
   useEffect(() =>{
 
-    dispatch(setInitialDate("2005-02-12"));
-    dispatch(setFinalDate("2020-02-12"));
-    dispatch(setSearch(""));
-    dispatch(setDisplay([]));
+    // dispatch(setInitialDate("2005-02-12"));
+    // dispatch(setFinalDate("2020-02-12"));
+    // dispatch(setSearch(""));
+    // dispatch(setDisplay([]));
 
   },[])
 
@@ -85,7 +86,14 @@ const page = () => {
         
     <dialog id="my_modal_2" className="modal ">
       <div className="flex flex-col m-5 items-center max-w-6xl modal-box">
-      <img className=" " src={selected.photo} alt={selected.title} />
+      
+      {
+        !selected.photo ?
+         <Image className=" " src={imamge} width={70} height={70} alt={"ERROR"} />
+        :
+        <img className=" " src={selected.photo} alt={selected.title} />
+
+}      
         <h3 className="font-bold text-lg">{selected.title}</h3>
         <p className="py-4">{selected.short_description}</p>
 
@@ -104,4 +112,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

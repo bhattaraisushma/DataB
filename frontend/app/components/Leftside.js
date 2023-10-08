@@ -2,8 +2,8 @@ import React from 'react'
 function Leftside() {
   return (
     <>
-     <div className='  w-[50%]   text-slate-400' >
-<div className='pl-[4rem] pt-[10rem]'>
+     <div className=' m-20 w-[50%] bg-[#1d232a]  bg-opacity-40 text-slate-300' >
+<div className=' p-[4rem]'>
         <p className='font-semibold '>EXPLORE THE</p> 
         <p className='font-extrabold text-2xl'>  DATA WORLD </p>
         <p className='font-extrabold  '>WITH US</p>
