@@ -3,22 +3,17 @@ import Navbar from "./components/Navbar";
 
 import { ReduxProvider } from "./components/redux/provider";
 
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-       
-       
-        <ReduxProvider >
-        <body className={inter.className}>
-          <div className='flex justify-between flex-col w-full'>
-            <Navbar/>
+      <ReduxProvider>
+        <body>
+          <div className="flex justify-between flex-col w-full">
+            <Navbar />
             {children}
-
-            
           </div>
-       </body>
-       </ReduxProvider>
+        </body>
+      </ReduxProvider>
     </html>
   );
 }

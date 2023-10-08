@@ -56,7 +56,6 @@ const MapComponent = (props) => {
 
     map.on("load", () => {
       if (map.getSource(sourceId)) {
-        console.log(`Removing source: ${sourceId}`);
         map.removeLayer(layerId);
         map.removeSource(sourceId);
       }
