@@ -26,8 +26,15 @@ const Navbar = () => {
   const textKey = (e) => {
     if (e.keyCode == 13) {
       getData();
+      reset_key();
+
     }
   };
+
+  const reset_key = () =>{
+    dispatch(setSearch(""));
+    document.getElementById('inp').value = "";
+  }
 
   useEffect(()=>{
 
@@ -36,13 +43,24 @@ const Navbar = () => {
 
   },[data])
 
+  const handleRoute = (route) =>  {
+
+    console.log(pathname)
+    if (route == '/search' && pathname == '/search') {
+      
+    }
+    else{
+      router.push(route);
+      reset_key();
+    }
+
+  }
+
   async function getData() {
     console.log("getting data...");
 
 
     dispatch(setLoading(true))
-
-    
 
 
     const params = {
@@ -87,28 +105,28 @@ const Navbar = () => {
             <div
               className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
              xl"
-              onClick={() => router.push("/")}
+              onClick={() => handleRoute("/")}
             >
               Home
             </div>
             <div
               className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
              xl"
-              onClick={() => router.push("/temp")}
+              onClick={() => handleRoute("/temp")}
             >
               Temperature
             </div>
             <div
               className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text-  
              xl"
-              onClick={() => router.push("/preci")}
+              onClick={() => handleRoute("/preci")}
             >
               Precipitation
             </div>
             <div
               className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
              xl"
-              onClick={() => router.push("/search")}
+              onClick={() => handleRoute("/search")}
             >
               Search
             </div>
@@ -116,6 +134,7 @@ const Navbar = () => {
 
           <input
             type="text"
+            id="inp"
             placeholder="Search Data"
             className=" text-[1rem] text-right pr-[5rem] text ml-[13rem] h-[2rem] w-[45rem] rounded-[12rem]"
             onChange={(e) => handleSearchChange(e)}
