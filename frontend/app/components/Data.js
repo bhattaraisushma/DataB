@@ -25,7 +25,7 @@ function Data({data}) {
         </div>
 
       <div className='ml-10 mt-2 rounded-[12rem]'>
-      <p className="line-clamp-4  text-white">
+      <p className="line-clamp-2  text-white">
   {data.short_description}
 </p>
 </div>

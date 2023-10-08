@@ -13,6 +13,7 @@ const Page = () => {
   
   const data = useSelector((state)=> state.main.current_display);
   const search = useSelector((state)=> state.main.search);
+  const loading = useSelector((state)=> state.main.loading)
 
   const dispatch = useDispatch();
 
@@ -23,10 +24,10 @@ const Page = () => {
 
   useEffect(() =>{
 
-    // dispatch(setInitialDate("2005-02-12"));
-    // dispatch(setFinalDate("2020-02-12"));
-    // dispatch(setSearch(""));
-    // dispatch(setDisplay([]));
+    dispatch(setInitialDate("2005-02-12"));
+    dispatch(setFinalDate("2020-02-12"));
+    dispatch(setSearch(""));
+    dispatch(setDisplay([]));
 
   },[])
 
@@ -49,11 +50,18 @@ const Page = () => {
       
       <div className='flex w-screen pl-24 flex-col justify-between items-center'>
 
+      {loading && <div>
+        
+         
+        LOADING
+
+    
+      
+      </div>}
        {data.length === 0 ? 
        <div className='h-[24.5rem] text-red-600 mt-20'>
 
-          no results found
-
+       
        </div>  
        
        : 

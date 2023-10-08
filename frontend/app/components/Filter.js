@@ -1,8 +1,12 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
-import { setFinalDate, setInitialDate } from './redux/features/mainSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFinalDate, setInitialDate, setSkip } from './redux/features/mainSlice';
+import {AiOutlineArrowLeft} from 'react-icons/ai'
+import {AiOutlineArrowRight} from 'react-icons/ai'
+
 function Filter() {
   const dispatch = useDispatch();
+  const skip = useSelector((state)=>state.main.skip);
 
   return (
     <div className='h-[45.5em] w-[18rem] top-[4rem] left-0 fixed bg-slate-400'>
@@ -27,8 +31,49 @@ function Filter() {
         
       </div>
       </div>
+
+      <div className='flex flex-col items-center mt-5'>
+    <div className='text-black font-bold'>
+      PAGE
+    </div>
+        
+        <div className='text-black'>
+            {skip/10}
+        </div>
+
+      <div className='flex space-x-5  mt-5'>
+        
+{
+
+    skip <= 10 ?
+
+        <div className='bg-blue-200  text-black text-[1.2rem] p-2 rounded-xl'>
+            <AiOutlineArrowLeft />
+          </div>
+          :
+          <div className='bg-blue-500 hover:bg-[#0000ff] hover:scale-[1.3] pointer-cursor transition ease-in-out duration-300 text-black text-[1.2rem] p-2 rounded-xl' onClick={()=>dispatch(setSkip(skip-10))}>
+            <AiOutlineArrowLeft />
+          </div>
+}
+
+{
+
+skip >= 10000 ?
+
+    <div className='bg-blue-200  text-black text-[1.2rem] p-2 rounded-xl'>
+        <AiOutlineArrowRight />
+      </div>
+      :
+      <div className='bg-blue-500 hover:bg-[#0000ff] hover:scale-[1.3] pointer-cursor transition ease-in-out duration-300 text-black text-[1.2rem] p-2 rounded-xl'  onClick={()=>dispatch(setSkip(skip+10))}>
+        <AiOutlineArrowRight />
+      </div>
+}
+
+      </div>
+
+      </div>
     </div>
   )
 }
 
-export default Filter
+export default Filter;

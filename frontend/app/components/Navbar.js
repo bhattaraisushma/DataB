@@ -1,15 +1,20 @@
 "use client";
-import { React } from "react";
+import { React, useEffect } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { setDisplay, setSearch } from "./redux/features/mainSlice";
+import { setDisplay, setLoading, setSearch } from "./redux/features/mainSlice";
 import { usePathname, useRouter } from "next/navigation";
 import api from "./axios";
 
 const Navbar = () => {
   const search = useSelector((state) => state.main.search);
 
+  const data = useSelector((state)=>state.main.current_display)
+
   const dispatch = useDispatch();
+
+  const loading = useSelector((state)=> state.main.loading);
+  const skipy = useSelector((state)=> state.main.skip);
 
   const router = useRouter();
 
@@ -24,29 +29,44 @@ const Navbar = () => {
     }
   };
 
+  useEffect(()=>{
+
+    dispatch(setLoading(false));
+    console.log(loading)
+
+  },[data])
+
   async function getData() {
     console.log("getting data...");
+
+
+    dispatch(setLoading(true))
+
+    
+
 
     const params = {
       query: search,
       limit: 10,
+      skip : skipy-10,
       initial_date: initial_date,
       final_date: final_date,
     };
 
-    let response = null;
-
+    let data = []
     try {
-      response = await api.get("/search", {
+      const response = await api.get("/search", {
         params: params,
       });
+      const response_data = response.data;
+      // console.log(response_data)
+      dispatch(setDisplay(response_data));
     } catch (error) {
-      // handle error
+      
+      dispatch(setDisplay());
+      
     }
 
-    const response_data = response.data;
-    // console.log(response_data)
-    dispatch(setDisplay(response_data));
   }
 
   function handleSearchChange(e) {
