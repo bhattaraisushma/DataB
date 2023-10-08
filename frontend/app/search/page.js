@@ -23,10 +23,10 @@ const page = () => {
 
   useEffect(() =>{
 
-    dispatch(setInitialDate("2005-02-12"));
-    dispatch(setFinalDate("2020-02-12"));
-    dispatch(setSearch(""));
-    dispatch(setDisplay([]));
+    // dispatch(setInitialDate("2005-02-12"));
+    // dispatch(setFinalDate("2020-02-12"));
+    // dispatch(setSearch(""));
+    // dispatch(setDisplay([]));
 
   },[])
 

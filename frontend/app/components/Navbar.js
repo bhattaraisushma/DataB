@@ -1,6 +1,6 @@
 "use client"
 import { React } from 'react'
-import { AiOutlineSearch } from 'react-icons/ai';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { setDisplay, setSearch } from './redux/features/mainSlice';
 import { usePathname, useRouter } from 'next/navigation';
@@ -79,7 +79,7 @@ const Navbar = () => {
             <div className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
              xl" onClick={()=>router.push('/temp')}>Temperature</div>
             <div className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text-  
-             xl" onClick={()=>router.push('/preci')}>Prepetation</div>
+             xl" onClick={()=>router.push('/preci')}>Precipitation</div>
             <div className="text-[#656667] btn btn-ghost  hover:bg-[#edf5fd] normal-case text- 
              xl" onClick={()=>router.push('/search')}>Search</div>
           </div>
