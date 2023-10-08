@@ -8,7 +8,7 @@ import imamge from '../../public/default.png'
 import { useState } from 'react'
 import { setDisplay, setFinalDate,setInitialDate, setSearch } from '../components/redux/features/mainSlice'
 
-const page = () => {
+const Page = () => {
 
   
   const data = useSelector((state)=> state.main.current_display);
@@ -112,4 +112,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

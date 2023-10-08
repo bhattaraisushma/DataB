@@ -15,7 +15,7 @@ function Data({data}) {
 
         {
           !data.photo || data.photo === "" ?
-          <Image className=' text-white w-[4rem] rounded-full h-[3rem]' src={imamge}/>
+          <Image alt='logo' className='text-white w-[4rem] rounded-full h-[3rem]' src={imamge}/>
           :
           
         <img className=' text-white w-[4rem] rounded-full h-[3rem]' src={data.photo}/>
