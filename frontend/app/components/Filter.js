@@ -3,10 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setFinalDate, setInitialDate, setSkip } from './redux/features/mainSlice';
 import {AiOutlineArrowLeft} from 'react-icons/ai'
 import {AiOutlineArrowRight} from 'react-icons/ai'
+import { useGetApi } from "./redux/api/apiSlice";
 
 function Filter() {
   const dispatch = useDispatch();
   const skip = useSelector((state)=>state.main.skip);
+  // const {data : gotdata } = useGetApi();
 
   return (
     <div className='h-[45.5em] w-[18rem] top-[4rem] left-0 fixed bg-slate-700'>

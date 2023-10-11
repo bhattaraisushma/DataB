@@ -6,6 +6,8 @@ import { setDisplay, setLoading, setSearch } from "./redux/features/mainSlice";
 import { usePathname, useRouter } from "next/navigation";
 import api from "./axios";
 
+
+
 const Navbar = () => {
   const search = useSelector((state) => state.main.search);
 
@@ -22,6 +24,18 @@ const Navbar = () => {
 
   const initial_date = useSelector((state) => state.main.initial_date);
   const final_date = useSelector((state) => state.main.final_date);
+
+  const params = {
+    query: search,
+    limit: 10,
+    skip : skipy-10,
+    initial_date: initial_date,
+    final_date: final_date,
+  };
+
+
+  // console.log(JSON.stringify(gotdata));
+
 
   const textKey = (e) => {
     if (e.keyCode == 13) {
@@ -71,6 +85,9 @@ const Navbar = () => {
       final_date: final_date,
     };
 
+
+
+    console.log();
     let data = []
     try {
       const response = await api.get("/search", {

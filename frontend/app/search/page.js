@@ -58,7 +58,7 @@ const Page = () => {
     
       
       </div>}
-       {data.length === 0 ? 
+       {data?.length === 0 ? 
        <div className='h-[24.5rem] text-red-600 mt-20'>
 
        
@@ -73,7 +73,7 @@ const Page = () => {
           
         
         {
-       data.map((d)=>{
+       data?.map((d)=>{
         return(
           
           <div className='pb-5' onClick={()=>handleSelected(d)} key={d.id}> 
